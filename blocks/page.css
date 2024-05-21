@@ -1,0 +1,17 @@
+.page {
+  background-color: black;
+  color: white;
+  padding-left: 15.625%;
+  margin: 0;
+  font-family: "Inter";
+}
+
+@media screen and (max-width: 320px) {
+  .page {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding-left: 0;
+    font-family: "Inter";
+  }
+}
