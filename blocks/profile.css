@@ -53,6 +53,7 @@
   border-color: white;
   border-style: solid;
   flex-grow: 1;
+  width: 150px;
 }
 
 .profile__info_grouping {
