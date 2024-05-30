@@ -1,7 +1,7 @@
 .locations {
   display: grid;
   grid-template-rows: repeat(3, auto);
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 300px);
   gap: 20px;
   padding-top: 51px;
 }

@@ -23,6 +23,7 @@
   font-size: 42px;
   margin: 0;
   height: 48px;
+  font-family: "Inter";
 }
 
 .profile__info_occupation {
@@ -32,6 +33,7 @@
   line-height: 21.78px;
   align-self: flex-start;
   padding-top: 7px;
+  font-family: "Inter";
 }
 
 .profile__info_edit {
@@ -68,6 +70,7 @@
     align-items: center;
     padding-left: 19px;
     width: 282px;
+    padding-right: 0;
   }
 
   .profile__info {
