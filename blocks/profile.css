@@ -1,7 +1,8 @@
 .profile {
   display: flex;
   padding-top: calc(160px - (74px + 45px));
-  padding-right: 200px;
+  width: calc(100% - 400px);
+  margin: 0 auto;
 }
 
 .profile__image {
@@ -22,21 +23,21 @@
   line-height: 48px;
   font-size: 42px;
   margin: 0;
-  height: 48px;
-  font-family: "Inter";
+  font-family: "Inter", "Times New Roman", Times, serif;
+  border-radius: 2px;
 }
 
-.profile__info_occupation {
+.profile__info-occupation {
   margin: 0;
   font-weight: 400;
   font-size: 18px;
   line-height: 21.78px;
   align-self: flex-start;
   padding-top: 7px;
-  font-family: "Inter";
+  font-family: "Inter", "Times New Roman", Times, serif;
 }
 
-.profile__info_edit {
+.profile__info-edit {
   height: 24px;
   width: 24px;
   margin-left: 18px;
@@ -45,20 +46,17 @@
   border-style: solid;
 }
 
-.profile__info_empty-space {
-  flex-grow: 3;
-}
-
-.profile__add-image {
+.profile__add {
   height: 50px;
   border-width: 2px;
   border-color: white;
   border-style: solid;
   flex-grow: 1;
   width: 150px;
+  margin-left: 18.65%;
 }
 
-.profile__info_grouping {
+.profile__info-grouping {
   display: flex;
 }
 
@@ -84,15 +82,14 @@
     padding-left: 0;
   }
 
-  .profile__info_name {
+  .profile__info-name {
     font-weight: 500;
     line-height: 26.63px;
     font-size: 22px;
     margin: 0;
-    height: 48px;
   }
 
-  .profile__info_occupation {
+  .profile__info-occupation {
     margin: 0;
     font-weight: 400;
     font-size: 14px;
@@ -100,7 +97,7 @@
     align-self: center;
   }
 
-  .profile__info_edit {
+  .profile__info-edit {
     height: 18px;
     width: 18px;
     margin-left: 10px;

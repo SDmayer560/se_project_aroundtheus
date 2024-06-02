@@ -1,23 +1,22 @@
 .header {
   border-bottom: 1px;
   border-bottom-style: solid;
-  border-color: #545454;
-  height: 74px;
+  border-color: rgba(84, 84, 84, 1);
   padding-top: 45px;
-  width: calc(100% - 200px);
+  margin: 0 auto;
+  width: calc(100% - 400px);
 }
 
 .header__logo {
   height: 33px;
   width: 173px;
+  padding-bottom: 41px;
 }
 
 @media screen and (max-width: 320px) {
   .header {
-    border-bottom: 1px;
     border-bottom-style: solid;
     border-color: #545454;
-    height: 74px;
     padding-top: 45px;
     width: 100%;
     padding-left: 0;
@@ -27,5 +26,6 @@
     height: 24px;
     width: 126px;
     padding-left: 27px;
+    padding-bottom: 32px;
   }
 }
