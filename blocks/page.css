@@ -7,6 +7,11 @@
   padding: auto;
 }
 
+.content {
+  width: calc(100% - 400px);
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 320px) {
   .page {
     background-color: black;
@@ -14,5 +19,10 @@
     margin: 0;
     padding-left: 0;
     font-family: "Inter";
+  }
+
+  .content {
+    width: calc(100% - 282px);
+    margin: 0;
   }
 }

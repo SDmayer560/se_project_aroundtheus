@@ -4,8 +4,6 @@
   grid-template-columns: repeat(3, 300px);
   gap: 20px;
   padding-top: 51px;
-  margin: 0 auto;
-  width: calc(100% - 400px);
 }
 
 .locations__grid-item {
