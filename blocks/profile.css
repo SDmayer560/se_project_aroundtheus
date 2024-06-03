@@ -58,9 +58,8 @@
   border-width: 2px;
   border-color: white;
   border-style: solid;
-  flex-grow: 1;
   width: 150px;
-  margin-left: 18.65%;
+  margin-left: auto;
 }
 
 .profile__info-grouping {
@@ -108,7 +107,17 @@
     height: 18px;
     width: 18px;
     margin-left: 10px;
+    position: relative;
   }
+
+  .profile__info-edit-image {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 7.5px;
+    height: 7.5px;
+  }
+
   .profile__info_empty-space {
     flex-grow: 0;
   }
@@ -116,7 +125,7 @@
   .profile__add {
     width: 100%;
     height: 50px;
-    margin: 36px 0;
+    margin: 36px 0 0;
     border-width: 2px;
     border-color: white;
     border-style: solid;
