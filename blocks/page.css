@@ -7,11 +7,6 @@
   padding: auto;
 }
 
-.content {
-  width: calc(100% - 400px);
-  margin: 0 auto;
-}
-
 @media screen and (max-width: 320px) {
   .page {
     background-color: black;
@@ -22,7 +17,7 @@
   }
 
   .content {
-    width: calc(100% - 282px);
+    width: 100%;
     margin: 0;
   }
 }

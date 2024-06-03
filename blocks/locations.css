@@ -4,6 +4,9 @@
   grid-template-columns: repeat(3, 300px);
   gap: 20px;
   padding-top: 51px;
+  margin: 0 auto;
+  width: calc(100% - 400px);
+  justify-content: center;
 }
 
 .locations__grid-item {
@@ -53,10 +56,22 @@
   }
 }
 
+@media screen and (max-width: 750px) {
+  .locations {
+    display: grid;
+    grid-template-rows: repeat(12, auto);
+    grid-template-columns: repeat(1, auto);
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .locations {
     display: grid;
     grid-template-rows: repeat(12, auto);
     grid-template-columns: repeat(1, auto);
+    justify-content: flex-start;
+    width: 100%;
   }
 }

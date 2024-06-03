@@ -5,6 +5,7 @@
   padding-top: 45px;
   margin: 0 auto;
   width: calc(100% - 400px);
+  min-width: 320px;
 }
 
 .header__logo {
