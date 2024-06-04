@@ -2,18 +2,14 @@
   background-color: black;
   color: white;
   margin: 0;
-  font-family: "Inter";
+  font-family: "Inter", "Times New Roman", Times, serif;
   align-self: center;
   padding: auto;
 }
 
 @media screen and (max-width: 320px) {
   .page {
-    background-color: black;
-    color: white;
-    margin: 0;
     padding-left: 0;
-    font-family: "Inter";
   }
 
   .content {

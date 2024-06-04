@@ -6,6 +6,7 @@
   margin: 0 auto;
   width: calc(100% - 400px);
   min-width: 320px;
+  max-width: 880px;
 }
 
 .header__logo {
@@ -21,6 +22,8 @@
     padding-top: 45px;
     width: 100%;
     padding-left: 0;
+    height: 56px;
+    padding-top: 28px;
   }
 
   .header__logo {
