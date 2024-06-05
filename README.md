@@ -17,6 +17,8 @@ This project is made so all the elements are displayed correctly on popular scre
 **Images**  
   
 The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+
+In this project I have made a small gallery of images from around the US. The primary goal of this project is to make a webpage that is adaptable to various screen sizes and devices. I have made this project adaptable by using the calc function, as well as percentages and the @media tag.
   
 Good luck and have fun!
 ![image](https://github.com/SDmayer560/se_project_aroundtheus/assets/142391046/3bc05b3a-babb-4a02-b14d-4dc46b01a4a7)
