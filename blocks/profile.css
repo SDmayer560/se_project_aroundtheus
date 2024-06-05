@@ -5,6 +5,7 @@
   width: calc(100% - 400px);
   min-width: 282px;
   max-width: 880px;
+  align-items: center;
 }
 
 .profile__image {
@@ -91,6 +92,10 @@
     padding-left: 0;
   }
 
+  .profile__info-grouping {
+    max-width: 300px;
+  }
+
   .profile__info-name {
     font-weight: 500;
     line-height: 26.63px;
@@ -104,12 +109,14 @@
     font-size: 14px;
     line-height: 16.94px;
     align-self: center;
+    max-width: 300px;
   }
 
   .profile__info-edit {
     height: 18px;
     width: 18px;
     margin-left: 10px;
+    display: flex;
   }
 
   .profile__info-edit-image {
@@ -138,5 +145,10 @@
     font-weight: 500;
     line-height: 26.63px;
     font-size: 22px;
+    max-width: 250px;
+  }
+
+  .profile__info-occupation {
+    max-width: 300px;
   }
 }

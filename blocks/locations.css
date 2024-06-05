@@ -53,7 +53,7 @@
 @media screen and (max-width: 1120px) {
   .locations {
     display: grid;
-    grid-template-rows: repeat(4, 300);
+    grid-template-rows: repeat(4, 300px);
     grid-template-columns: repeat(2, auto);
   }
 }

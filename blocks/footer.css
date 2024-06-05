@@ -4,6 +4,7 @@
   padding-top: 67px;
   width: calc(100% - 400px);
   margin: 0 auto;
+  max-width: 880px;
 }
 
 .footer__text {
