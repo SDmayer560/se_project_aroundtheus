@@ -73,20 +73,14 @@
 
 @media screen and (max-width: 900px) {
   .profile {
-    display: flex;
-    padding-top: calc(160px - (74px + 45px));
     flex-direction: column;
-    align-items: center;
     width: 282px;
     padding-right: 0;
   }
 
   .profile__info {
-    display: flex;
     width: 282px;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     padding-top: 30px;
     padding-left: 0;
@@ -97,19 +91,14 @@
   }
 
   .profile__info-name {
-    font-weight: 500;
     line-height: 26.63px;
     font-size: 22px;
-    margin: 0;
   }
 
   .profile__info-occupation {
-    margin: 0;
-    font-weight: 400;
     font-size: 14px;
     line-height: 16.94px;
     align-self: center;
-    max-width: 300px;
   }
 
   .profile__info-edit {
@@ -127,11 +116,7 @@
 
   .profile__add {
     width: 100%;
-    height: 50px;
     margin: 36px 0 0;
-    border-width: 2px;
-    border-color: white;
-    border-style: solid;
   }
 
   .profile__add-image {
@@ -149,6 +134,6 @@
   }
 
   .profile__info-occupation {
-    max-width: 300px;
+    max-width: 282px;
   }
 }
