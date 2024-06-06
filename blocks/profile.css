@@ -90,11 +90,6 @@
     max-width: 300px;
   }
 
-  .profile__info-name {
-    line-height: 26.63px;
-    font-size: 22px;
-  }
-
   .profile__info-occupation {
     font-size: 14px;
     line-height: 16.94px;
@@ -127,7 +122,6 @@
 
 @media screen and (max-width: 1003px) {
   .profile__info-name {
-    font-weight: 500;
     line-height: 26.63px;
     font-size: 22px;
     max-width: 250px;
