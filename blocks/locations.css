@@ -65,10 +65,3 @@
     padding-top: 36px;
   }
 }
-
-@media screen and (max-width: 320px) {
-  .locations {
-    grid-template-rows: repeat(6, auto);
-    grid-template-columns: repeat(1, auto);
-  }
-}
