@@ -48,7 +48,7 @@
             </div>
             <p class="profile__info-occupation" id="occupation">Explorer</p>
           </div>
-          <button class="profile__add buttons" type="button">
+          <button class="profile__add buttons" type="button" id="addbutton">
             <img
               src="./images/Plus.svg"
               alt="add image button"
@@ -57,100 +57,15 @@
           </button>
         </section>
 
-        <section class="locations">
+        <section class="locations" id="cardscontainer">
+          <template id="cards">
           <article class="locations__grid-item">
             <img
-              src="./images/yosemite-valley.jpg"
-              alt="Yosemite Valley"
               class="locations__grid-item-image"
+              id="cardImage"
             />
             <div class="locations__grid-item-grouping">
-              <h2 class="locations__grid-item-name">Yosemite Valley</h2>
-              <button type="button" class="locations__grid-item-heart buttons">
-                <img
-                  src="./images/Heart-Button.svg"
-                  alt="heart button"
-                  class="locations__grid-item-heart-image"
-                />
-              </button>
-            </div>
-          </article>
-          <article class="locations__grid-item">
-            <img
-              src="./images/lake-louise.png"
-              alt="Lake Lousie"
-              class="locations__grid-item-image"
-            />
-            <div class="locations__grid-item-grouping">
-              <h2 class="locations__grid-item-name">Lake Lousie</h2>
-              <button type="button" class="locations__grid-item-heart buttons">
-                <img
-                  src="./images/Heart-Button.svg"
-                  alt="heart button"
-                  class="locations__grid-item-heart-image"
-                />
-              </button>
-            </div>
-          </article>
-          <article class="locations__grid-item">
-            <img
-              src="./images/bald-mountains.png"
-              alt="Bald Mountains"
-              class="locations__grid-item-image"
-            />
-            <div class="locations__grid-item-grouping">
-              <h2 class="locations__grid-item-name">Bald Mountains</h2>
-              <button type="button" class="locations__grid-item-heart buttons">
-                <img
-                  src="./images/Heart-Button.svg"
-                  alt="heart button"
-                  class="locations__grid-item-heart-image"
-                />
-              </button>
-            </div>
-          </article>
-          <article class="locations__grid-item">
-            <img
-              src="./images/latemar.png"
-              alt="Latemar"
-              class="locations__grid-item-image"
-            />
-            <div class="locations__grid-item-grouping">
-              <h2 class="locations__grid-item-name">Latemar</h2>
-              <button type="button" class="locations__grid-item-heart buttons">
-                <img
-                  src="./images/Heart-Button.svg"
-                  alt="heart button"
-                  class="locations__grid-item-heart-image"
-                />
-              </button>
-            </div>
-          </article>
-          <article class="locations__grid-item">
-            <img
-              src="./images/vanoise-national-park.png"
-              alt="Vanoise National Park"
-              class="locations__grid-item-image"
-            />
-            <div class="locations__grid-item-grouping">
-              <h2 class="locations__grid-item-name">Vanoise National Park</h2>
-              <button type="button" class="locations__grid-item-heart buttons">
-                <img
-                  src="./images/Heart-Button.svg"
-                  alt="heart button"
-                  class="locations__grid-item-heart-image"
-                />
-              </button>
-            </div>
-          </article>
-          <article class="locations__grid-item">
-            <img
-              src="./images/lago-di-braies.png"
-              alt="Lago di Braies"
-              class="locations__grid-item-image"
-            />
-            <div class="locations__grid-item-grouping">
-              <h2 class="locations__grid-item-name">Lago di Braies</h2>
+              <h2 class="locations__grid-item-name" id="cardName">Yosemite Valley</h2>
               <button type="button" class="locations__grid-item-heart buttons">
                 <img
                   src="./images/Heart-Button.svg"
@@ -161,6 +76,7 @@
             </div>
           </article>
         </section>
+      </template>
       </main>
 
       <footer class="footer">

@@ -33,6 +33,11 @@ let namefield = document.querySelector("#namefield");
 let occupationfield = document.querySelector("#occupationfield");
 let personname = document.querySelector("#name");
 let occupation = document.querySelector("#occupation");
+let card = document.querySelector("#cards");
+
+let cardContainer = document.querySelector("#cardscontainer");
+let addButton = document.querySelector("#addbutton");
+i = 0;
 
 editbutton.addEventListener("click", () => {
   popupopen.classList.remove("popup-closed");
@@ -52,4 +57,14 @@ editsave.addEventListener("click", () => {
   popupopen.classList.add("popup-closed");
 });
 
-function getCardElement() {}
+addbutton.addEventListener("click", () => {
+  cardTemplate = card.content;
+  cardElement = cardTemplate.cloneNode(true);
+  let cardName = cardElement.querySelector("#cardName");
+  let cardImage = cardElement.querySelector("#cardImage");
+  cardImage.src = initialCards[i].link;
+  cardImage.alt = initialCards[i].name;
+  cardName.textContent = initialCards[i].name;
+  cardContainer.prepend(cardElement);
+  i++;
+});
