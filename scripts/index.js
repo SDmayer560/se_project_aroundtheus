@@ -34,15 +34,15 @@ const occupationField = document.querySelector("#occupationfield");
 const card = document.querySelector("#cards");
 const cardContainer = document.querySelector("#cardscontainer");
 const addButton = document.querySelector("#addbutton");
+let personName = document.querySelector("#name");
+let occupation = document.querySelector("#occupation");
 
 function closePopup() {
-  popupOpen.classList.add("popup-closed");
+  popupOpen.classList.add("popup_closed");
 }
 
 editButton.addEventListener("click", () => {
-  popupOpen.classList.remove("popup-closed");
-  let personName = document.querySelector("#name");
-  let occupation = document.querySelector("#occupation");
+  popupOpen.classList.remove("popup_closed");
   nameField.value = personName.textContent;
   occupationField.value = occupation.textContent;
 });
