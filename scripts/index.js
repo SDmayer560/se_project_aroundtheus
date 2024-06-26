@@ -28,11 +28,28 @@ let initialCards = [
 let popupopen = document.querySelector("#popup");
 let editbutton = document.querySelector("#profile-edit");
 let closepopup = document.querySelector("#closePopup");
+let editsave = document.querySelector("#editsave");
+let namefield = document.querySelector("#namefield");
+let occupationfield = document.querySelector("#occupationfield");
+let personname = document.querySelector("#name");
+let occupation = document.querySelector("#occupation");
 
 editbutton.addEventListener("click", () => {
-  popupopen.classList.remove("popup__closed");
+  popupopen.classList.remove("popup-closed");
+  let personname = document.querySelector("#name");
+  let occupation = document.querySelector("#occupation");
+  namefield.value = personname.textContent;
+  occupationfield.value = occupation.textContent;
 });
 
 closepopup.addEventListener("click", () => {
-  popupopen.classList.add("popup__closed");
+  popupopen.classList.add("popup-closed");
 });
+
+editsave.addEventListener("click", () => {
+  personname.textContent = namefield.value;
+  occupation.textContent = occupationfield.value;
+  popupopen.classList.add("popup-closed");
+});
+
+function getCardElement() {}

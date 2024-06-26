@@ -33,7 +33,7 @@
           />
           <div class="profile__info">
             <div class="profile__info-grouping">
-              <h1 class="profile__info-name">Jacques Cousteau</h1>
+              <h1 class="profile__info-name" id="name">Jacques Cousteau</h1>
               <button
                 class="profile__info-edit buttons"
                 type="button"
@@ -46,7 +46,7 @@
                 />
               </button>
             </div>
-            <p class="profile__info-occupation">Explorer</p>
+            <p class="profile__info-occupation" id="occupation">Explorer</p>
           </div>
           <button class="profile__add buttons" type="button">
             <img
@@ -181,10 +181,18 @@
         <input
           class="popup__field"
           type="text"
-          placeholder="Jacques Cousteau"
+          placeholder="Name"
+          id="namefield"
         />
-        <input class="popup__field" type="text" placeholder="Explorer" />
-        <button class="popup__button buttons">Save</button>
+        <input
+          class="popup__field"
+          type="text"
+          placeholder="Occupation"
+          id="occupationfield"
+        />
+        <button class="popup__button buttons" type="submit" id="editsave">
+          Save
+        </button>
       </div>
     </div>
     <script src="./scripts/index.js"></script>
