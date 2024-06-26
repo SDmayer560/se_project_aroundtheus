@@ -4,7 +4,7 @@
   position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
   top: 0px;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -62,8 +62,8 @@
   width: 40px;
 }
 
-.popup__opened {
-  display: flex;
+.popup__closed {
+  display: none;
 }
 
 @media screen and (max-width: 500px) {

@@ -12,7 +12,6 @@
     <meta name="keywords" content="Pictures, US" />
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="shortcut icon" href="./favicon.ico" />
-    <script src="./scripts/index.js"></script>
   </head>
 
   <body>
@@ -35,7 +34,11 @@
           <div class="profile__info">
             <div class="profile__info-grouping">
               <h1 class="profile__info-name">Jacques Cousteau</h1>
-              <button class="profile__info-edit buttons" type="button">
+              <button
+                class="profile__info-edit buttons"
+                type="button"
+                id="profile-edit"
+              >
                 <img
                   src="./images/edit.svg"
                   alt="edit profile button"
@@ -165,9 +168,9 @@
       </footer>
     </div>
 
-    <div class="popup">
+    <div class="popup popup__closed" id="popup">
       <div class="popup__box">
-        <button class="popup__close buttons">
+        <button class="popup__close buttons" id="closePopup">
           <img
             src="./images/Close Icon.svg"
             alt="close button"
@@ -186,3 +189,5 @@
     </div>
   </body>
 </html>
+
+<script src="./scripts/index.js"></script>
