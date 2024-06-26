@@ -1,4 +1,4 @@
-let initialCards = [
+const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -25,53 +25,53 @@ let initialCards = [
   },
 ];
 
-let popupopen = document.querySelector("#popup");
-let editbutton = document.querySelector("#profile-edit");
-let closepopup = document.querySelector("#closePopup");
-let editsave = document.querySelector("#editsave");
-let namefield = document.querySelector("#namefield");
-let occupationfield = document.querySelector("#occupationfield");
-let personname = document.querySelector("#name");
-let occupation = document.querySelector("#occupation");
-let card = document.querySelector("#cards");
+const popupOpen = document.querySelector("#popup");
+const editButton = document.querySelector("#profile-edit");
+const closePopupButton = document.querySelector("#closePopup");
+const editSave = document.querySelector("#editsave");
+const nameField = document.querySelector("#namefield");
+const occupationField = document.querySelector("#occupationfield");
+const card = document.querySelector("#cards");
+const cardContainer = document.querySelector("#cardscontainer");
+const addButton = document.querySelector("#addbutton");
 
-let cardContainer = document.querySelector("#cardscontainer");
-let addButton = document.querySelector("#addbutton");
-i = 0;
+function closePopup() {
+  popupOpen.classList.add("popup-closed");
+}
 
-editbutton.addEventListener("click", () => {
-  popupopen.classList.remove("popup-closed");
-  let personname = document.querySelector("#name");
+editButton.addEventListener("click", () => {
+  popupOpen.classList.remove("popup-closed");
+  let personName = document.querySelector("#name");
   let occupation = document.querySelector("#occupation");
-  namefield.value = personname.textContent;
-  occupationfield.value = occupation.textContent;
+  nameField.value = personName.textContent;
+  occupationField.value = occupation.textContent;
 });
 
-closepopup.addEventListener("click", () => {
-  popupopen.classList.add("popup-closed");
+closePopupButton.addEventListener("click", () => {
+  closePopup();
 });
 
-editsave.addEventListener("click", () => {
-  personname.textContent = namefield.value;
-  occupation.textContent = occupationfield.value;
-  popupopen.classList.add("popup-closed");
+editSave.addEventListener("click", () => {
+  personName.textContent = nameField.value;
+  occupation.textContent = occupationField.value;
+  closePopup();
 });
 
-function addCard(n) {
-  n -= 1;
+function createCard(n) {
   cardTemplate = card.content;
   cardElement = cardTemplate.cloneNode(true);
-  let cardName = cardElement.querySelector("#cardName");
-  let cardImage = cardElement.querySelector("#cardImage");
+  const cardName = cardElement.querySelector("#cardName");
+  const cardImage = cardElement.querySelector("#cardImage");
   cardImage.src = initialCards[n].link;
   cardImage.alt = initialCards[n].name;
   cardName.textContent = initialCards[n].name;
+}
+
+function addCard() {
   cardContainer.append(cardElement);
 }
 
-addCard(1);
-addCard(2);
-addCard(3);
-addCard(4);
-addCard(5);
-addCard(6);
+for (let i = 0; i <= initialCards.length - 1; i++) {
+  createCard(i);
+  addCard();
+}
