@@ -57,14 +57,21 @@ editsave.addEventListener("click", () => {
   popupopen.classList.add("popup-closed");
 });
 
-addbutton.addEventListener("click", () => {
+function addCard(n) {
+  n -= 1;
   cardTemplate = card.content;
   cardElement = cardTemplate.cloneNode(true);
   let cardName = cardElement.querySelector("#cardName");
   let cardImage = cardElement.querySelector("#cardImage");
-  cardImage.src = initialCards[i].link;
-  cardImage.alt = initialCards[i].name;
-  cardName.textContent = initialCards[i].name;
-  cardContainer.prepend(cardElement);
-  i++;
-});
+  cardImage.src = initialCards[n].link;
+  cardImage.alt = initialCards[n].name;
+  cardName.textContent = initialCards[n].name;
+  cardContainer.append(cardElement);
+}
+
+addCard(1);
+addCard(2);
+addCard(3);
+addCard(4);
+addCard(5);
+addCard(6);
