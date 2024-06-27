@@ -38,11 +38,18 @@ let personName = document.querySelector("#name");
 let occupation = document.querySelector("#occupation");
 
 function closePopup() {
-  popupOpen.classList.add("popup_closed");
+  popupOpen.classList.remove("popup_opened");
+}
+
+function saveEdit(event) {
+  event.preventDefault();
+  personName.textContent = nameField.value;
+  occupation.textContent = occupationField.value;
+  closePopup();
 }
 
 editButton.addEventListener("click", () => {
-  popupOpen.classList.remove("popup_closed");
+  popupOpen.classList.add("popup_opened");
   nameField.value = personName.textContent;
   occupationField.value = occupation.textContent;
 });
@@ -51,11 +58,11 @@ closePopupButton.addEventListener("click", () => {
   closePopup();
 });
 
-editSave.addEventListener("click", () => {
-  personName.textContent = nameField.value;
-  occupation.textContent = occupationField.value;
-  closePopup();
-});
+editSave.addEventListener("submit", saveEdit);
+
+occupationField.addEventListener("submit", saveEdit);
+
+nameField.addEventListener("submit", saveEdit);
 
 function createCard(n) {
   cardTemplate = card.content;
