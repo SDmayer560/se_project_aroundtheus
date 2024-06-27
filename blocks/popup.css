@@ -78,14 +78,24 @@
 
 @media screen and (max-width: 500px) {
   .popup__box {
-    width: 282px;
+    width: calc(100% - 38px);
     height: 322px;
   }
 
   .popup__close {
-    top: -39.62px;
+    top: -50.38px;
     left: 245.62px;
     width: 26px;
     height: 26px;
+  }
+
+  .popup__close-image {
+    height: 24px;
+    width: 24px;
+  }
+
+  .popup__title {
+    font-size: 18px;
+    line-height: 21.78px;
   }
 }

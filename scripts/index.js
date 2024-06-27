@@ -36,13 +36,13 @@ const cardContainer = document.querySelector("#cardscontainer");
 const addButton = document.querySelector("#addbutton");
 let personName = document.querySelector("#name");
 let occupation = document.querySelector("#occupation");
+const editForm = document.querySelector("#editform");
 
 function closePopup() {
   popupOpen.classList.remove("popup_opened");
 }
 
-function saveEdit(event) {
-  event.preventDefault();
+function saveEdit() {
   personName.textContent = nameField.value;
   occupation.textContent = occupationField.value;
   closePopup();
@@ -54,15 +54,12 @@ editButton.addEventListener("click", () => {
   occupationField.value = occupation.textContent;
 });
 
-closePopupButton.addEventListener("click", () => {
-  closePopup();
+closePopupButton.addEventListener("click", closePopup);
+
+editForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  saveEdit();
 });
-
-editSave.addEventListener("submit", saveEdit);
-
-occupationField.addEventListener("submit", saveEdit);
-
-nameField.addEventListener("submit", saveEdit);
 
 function createCard(n) {
   cardTemplate = card.content;
