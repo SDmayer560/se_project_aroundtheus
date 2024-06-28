@@ -97,5 +97,20 @@
   .popup__title {
     font-size: 18px;
     line-height: 21.78px;
+    margin-bottom: 45.26px;
+    padding-left: 22px;
+  }
+
+  .popup__field {
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+
+  .popup__button {
+    font-size: 14px;
+    line-height: 16.94px;
+    margin-left: 22px;
+    margin-right: 22px;
+    margin-top: 45px;
   }
 }

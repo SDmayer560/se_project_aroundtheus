@@ -25,10 +25,9 @@ const initialCards = [
   },
 ];
 
-const popupOpen = document.querySelector("#popup");
+const profilePopup = document.querySelector("#popup");
 const editButton = document.querySelector("#profile-edit");
 const closePopupButton = document.querySelector("#closePopup");
-const editSave = document.querySelector("#editsave");
 const nameField = document.querySelector("#namefield");
 const occupationField = document.querySelector("#occupationfield");
 const card = document.querySelector("#cards");
@@ -39,7 +38,7 @@ let occupation = document.querySelector("#occupation");
 const editForm = document.querySelector("#editform");
 
 function closePopup() {
-  popupOpen.classList.remove("popup_opened");
+  profilePopup.classList.remove("popup_opened");
 }
 
 function saveEdit() {
@@ -49,7 +48,7 @@ function saveEdit() {
 }
 
 editButton.addEventListener("click", () => {
-  popupOpen.classList.add("popup_opened");
+  profilePopup.classList.add("popup_opened");
   nameField.value = personName.textContent;
   occupationField.value = occupation.textContent;
 });
@@ -61,21 +60,22 @@ editForm.addEventListener("submit", (event) => {
   saveEdit();
 });
 
-function createCard(n) {
-  cardTemplate = card.content;
-  cardElement = cardTemplate.cloneNode(true);
+function createCard(cardData) {
+  const cardTemplate = card.content;
+  const cardElement = cardTemplate.cloneNode(true);
   const cardName = cardElement.querySelector("#cardName");
   const cardImage = cardElement.querySelector("#cardImage");
-  cardImage.src = initialCards[n].link;
-  cardImage.alt = initialCards[n].name;
-  cardName.textContent = initialCards[n].name;
+  cardImage.src = cardData.link;
+  cardImage.alt = cardData.name;
+  cardName.textContent = cardData.name;
+  return cardElement;
 }
 
-function addCard() {
+function addCard(cardElement) {
   cardContainer.append(cardElement);
 }
 
 for (let i = 0; i <= initialCards.length - 1; i++) {
-  createCard(i);
-  addCard();
+  const cardElement = createCard(initialCards[i]);
+  addCard(cardElement);
 }
