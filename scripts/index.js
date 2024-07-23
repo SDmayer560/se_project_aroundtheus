@@ -75,7 +75,7 @@ function addCard(cardElement) {
   cardContainer.append(cardElement);
 }
 
-for (let i = 0; i <= initialCards.length - 1; i++) {
-  const cardElement = createCard(initialCards[i]);
+initialCards.forEach(function (card) {
+  const cardElement = createCard(card);
   addCard(cardElement);
-}
+});
