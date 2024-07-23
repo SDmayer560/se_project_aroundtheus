@@ -86,9 +86,9 @@
       </footer>
     </div>
 
-    <div class="popup" id="popup">
+    <div class="popup" id="popup-profile">
       <div class="popup__box">
-        <button class="popup__close buttons" id="closePopup">
+        <button class="popup__close buttons" id="closeEditPopup">
           <img
             src="./images/Close Icon.svg"
             alt="close button"
@@ -110,6 +110,34 @@
             id="occupationfield"
           />
           <button class="popup__button buttons" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-add">
+      <div class="popup__box">
+        <button class="popup__close buttons" id="closeAddPopup">
+          <img
+            src="./images/Close Icon.svg"
+            alt="close button"
+            class="popup__close-image"
+          />
+        </button>
+        <p class="popup__title">New Place</p>
+        <form class="popup__form" id="addform">
+          <input
+            class="popup__field"
+            type="text"
+            placeholder="Title"
+            id="titlefield"
+          />
+          <input
+            class="popup__field"
+            type="text"
+            placeholder="Link"
+            id="linkfield"
+          />
+          <button class="popup__button buttons" type="submit">Create</button>
         </form>
       </div>
     </div>

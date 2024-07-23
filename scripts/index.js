@@ -25,20 +25,26 @@ const initialCards = [
   },
 ];
 
-const profilePopup = document.querySelector("#popup");
+const profilePopup = document.querySelector("#popup-profile");
+const addPopup = document.querySelector("#popup-add");
 const editButton = document.querySelector("#profile-edit");
-const closePopupButton = document.querySelector("#closePopup");
+const closeEditPopupButton = document.querySelector("#closeEditPopup");
+const closeAddPopupButton = document.querySelector("#closeAddPopup");
 const nameField = document.querySelector("#namefield");
 const occupationField = document.querySelector("#occupationfield");
+const titleField = document.querySelector("#titlefield");
+const linkField = document.querySelector("#linkfield");
 const card = document.querySelector("#cards");
 const cardContainer = document.querySelector("#cardscontainer");
 const addButton = document.querySelector("#addbutton");
 let personName = document.querySelector("#name");
 let occupation = document.querySelector("#occupation");
 const editForm = document.querySelector("#editform");
+const addForm = document.querySelector("#addform");
 
 function closePopup() {
   profilePopup.classList.remove("popup_opened");
+  addPopup.classList.remove("popup_opened");
 }
 
 function saveEdit() {
@@ -53,11 +59,16 @@ editButton.addEventListener("click", () => {
   occupationField.value = occupation.textContent;
 });
 
-closePopupButton.addEventListener("click", closePopup);
+closeEditPopupButton.addEventListener("click", closePopup);
+closeAddPopupButton.addEventListener("click", closePopup);
 
 editForm.addEventListener("submit", (event) => {
   event.preventDefault();
   saveEdit();
+});
+
+addButton.addEventListener("click", () => {
+  addPopup.classList.add("popup_opened");
 });
 
 function createCard(cardData) {
