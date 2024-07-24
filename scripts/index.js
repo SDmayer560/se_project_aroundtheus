@@ -25,6 +25,8 @@ const initialCards = [
   },
 ];
 
+/* VARIABLE DECLARATIONS */
+
 const profilePopup = document.querySelector("#popup-profile");
 const addPopup = document.querySelector("#popup-add");
 const editButton = document.querySelector("#profile-edit");
@@ -41,6 +43,8 @@ let personName = document.querySelector("#name");
 let occupation = document.querySelector("#occupation");
 const editForm = document.querySelector("#editform");
 const addForm = document.querySelector("#addform");
+
+/* ================================================================================================= */
 
 function closePopup() {
   profilePopup.classList.remove("popup_opened");
@@ -67,11 +71,24 @@ editForm.addEventListener("submit", (event) => {
   saveEdit();
 });
 
+addForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let cardElement = createCustomCard(titleField.value, linkField.value);
+  addCard(cardElement);
+});
+
 addButton.addEventListener("click", () => {
   addPopup.classList.add("popup_opened");
 });
 
+function heartUnheart(likeImage) {
+  if ((likeImage.src = "./images/Heart-Button.svg")) {
+    likeImage.src = "./images/Hearted-Button.svg";
+  } else likeImage.src = "./images/Heart-Button.svg";
+}
+
 function createCard(cardData) {
+  debugger;
   const cardTemplate = card.content;
   const cardElement = cardTemplate.cloneNode(true);
   const cardName = cardElement.querySelector("#cardName");
@@ -79,11 +96,29 @@ function createCard(cardData) {
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
   cardName.textContent = cardData.name;
+  const likeButton = cardElement.querySelector("#likeButton");
+  const likeImage = cardElement.querySelector("#likeImage");
+  likeButton.addEventListener("click", () => heartUnheart(likeImage));
+  return cardElement;
+}
+
+function createCustomCard(imgTitle, imgLink) {
+  const cardTemplate = card.content;
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardName = cardElement.querySelector("#cardName");
+  const cardImage = cardElement.querySelector("#cardImage");
+  cardImage.src = imgLink;
+  cardImage.alt = imgTitle;
+  cardName.textContent = imgTitle;
+  const likeButton = document.querySelector("#likeButton");
+  const likeImage = document.querySelector("#likeImage");
   return cardElement;
 }
 
 function addCard(cardElement) {
   cardContainer.append(cardElement);
+  const likeButton = document.querySelector("#likeButton");
+  const likeImage = document.querySelector("#likeImage");
 }
 
 initialCards.forEach(function (card) {
