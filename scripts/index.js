@@ -131,10 +131,12 @@ function createCustomCard(imgTitle, imgLink) {
   cardImage.src = imgLink;
   cardImage.alt = imgTitle;
   cardName.textContent = imgTitle;
-  const likeButton = document.querySelector("#likeButton");
-  const likeImage = document.querySelector("#likeImage");
+  const likeButton = cardElement.querySelector("#likeButton");
+  const likeImage = cardElement.querySelector("#likeImage");
+  const deleteButton = cardElement.querySelector("#delete");
   likeButton.addEventListener("click", () => heart(likeImage));
   deleteButton.addEventListener("click", () => removeCard(deleteButton));
+  cardImage.addEventListener("click", () => openPicture(cardImage, cardName));
   return cardElement;
 }
 

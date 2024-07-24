@@ -3,6 +3,7 @@
   color: white;
   margin: 0;
   font-family: "Inter", "Times New Roman", Times, serif;
+  min-height: 100vh;
 }
 
 @media screen and (max-width: 320px) {
