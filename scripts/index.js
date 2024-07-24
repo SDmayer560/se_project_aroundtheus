@@ -43,12 +43,17 @@ let personName = document.querySelector("#name");
 let occupation = document.querySelector("#occupation");
 const editForm = document.querySelector("#editform");
 const addForm = document.querySelector("#addform");
+const closeImgPopupButton = document.querySelector("#closePicturePopup");
+let popupImage = document.querySelector("#popupImage");
+let popupTitle = document.querySelector("#popupTitle");
+const popupPicture = document.querySelector("#popupPicture");
 
 /* ================================================================================================= */
 
 function closePopup() {
   profilePopup.classList.remove("popup_opened");
   addPopup.classList.remove("popup_opened");
+  popupPicture.classList.remove("popup_opened");
 }
 
 function saveEdit() {
@@ -65,6 +70,7 @@ editButton.addEventListener("click", () => {
 
 closeEditPopupButton.addEventListener("click", closePopup);
 closeAddPopupButton.addEventListener("click", closePopup);
+closeImgPopupButton.addEventListener("click", closePopup);
 
 editForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -81,14 +87,25 @@ addButton.addEventListener("click", () => {
   addPopup.classList.add("popup_opened");
 });
 
-function heartUnheart(likeImage) {
+function heart(likeImage) {
   if ((likeImage.src = "./images/Heart-Button.svg")) {
     likeImage.src = "./images/Hearted-Button.svg";
-  } else likeImage.src = "./images/Heart-Button.svg";
+  }
+}
+
+function removeCard(deleteButton) {
+  const cardTarget = deleteButton.closest(".locations__grid-item");
+  cardTarget.remove();
+}
+
+function openPicture(cardImage, cardName) {
+  popupImage.src = cardImage.src;
+  popupImage.alt = cardImage.alt;
+  popupTitle.textContent = cardName.textContent;
+  popupPicture.classList.add("popup_opened");
 }
 
 function createCard(cardData) {
-  debugger;
   const cardTemplate = card.content;
   const cardElement = cardTemplate.cloneNode(true);
   const cardName = cardElement.querySelector("#cardName");
@@ -98,7 +115,11 @@ function createCard(cardData) {
   cardName.textContent = cardData.name;
   const likeButton = cardElement.querySelector("#likeButton");
   const likeImage = cardElement.querySelector("#likeImage");
-  likeButton.addEventListener("click", () => heartUnheart(likeImage));
+  const deleteButton = cardElement.querySelector("#delete");
+
+  likeButton.addEventListener("click", () => heart(likeImage));
+  deleteButton.addEventListener("click", () => removeCard(deleteButton));
+  cardImage.addEventListener("click", () => openPicture(cardImage, cardName));
   return cardElement;
 }
 
@@ -112,13 +133,13 @@ function createCustomCard(imgTitle, imgLink) {
   cardName.textContent = imgTitle;
   const likeButton = document.querySelector("#likeButton");
   const likeImage = document.querySelector("#likeImage");
+  likeButton.addEventListener("click", () => heart(likeImage));
+  deleteButton.addEventListener("click", () => removeCard(deleteButton));
   return cardElement;
 }
 
 function addCard(cardElement) {
   cardContainer.append(cardElement);
-  const likeButton = document.querySelector("#likeButton");
-  const likeImage = document.querySelector("#likeImage");
 }
 
 initialCards.forEach(function (card) {

@@ -60,6 +60,13 @@
         <section class="locations" id="cardscontainer">
           <template id="cards">
             <article class="locations__grid-item">
+              <button
+                type="button"
+                class="locations__grid-item-delete buttons"
+                id="delete"
+              >
+                <img src="./images/Trash.svg" alt="Trash button" />
+              </button>
               <img class="locations__grid-item-image" id="cardImage" />
               <div class="locations__grid-item-grouping">
                 <h2 class="locations__grid-item-name" id="cardName">
@@ -78,6 +85,7 @@
                   />
                 </button>
               </div>
+              </div>
             </article>
           </template>
         </section>
@@ -88,7 +96,7 @@
       </footer>
     </div>
 
-    <div class="popup" id="popup-profile">
+    <div class="popup popup_closed" id="popup-profile">
       <div class="popup__box">
         <button class="popup__close buttons" id="closeEditPopup">
           <img
@@ -116,7 +124,7 @@
       </div>
     </div>
 
-    <div class="popup" id="popup-add">
+    <div class="popup popup_closed" id="popup-add">
       <div class="popup__box">
         <button class="popup__close buttons" id="closeAddPopup">
           <img
@@ -142,6 +150,19 @@
           <button class="popup__button buttons" type="submit">Create</button>
         </form>
       </div>
+    </div>
+
+    <div class="popup" id="popupPicture">
+      <div class="popup__group">
+      <img class="popup__group-image" id="popupImage" />
+      <button class="popup__close buttons" id="closePicturePopup">
+        <img
+          src="./images/Close Icon.svg"
+          alt="close button"
+          class="popup__group-close-image"
+        />
+      </button>
+      <p class="popup-title" id="popupTitle"></p>
     </div>
     <script src="./scripts/index.js"></script>
   </body>
