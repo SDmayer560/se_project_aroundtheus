@@ -75,9 +75,11 @@ editForm.addEventListener("submit", (event) => {
 });
 
 addForm.addEventListener("submit", (event) => {
+  debugger;
   event.preventDefault();
-  const cardData = [{ name: titleField.value, link: linkField.value }];
-  const cardElement = createCard(cardData);
+  const cardInfo = { name: titleField.value, link: linkField.value };
+  console.log(cardInfo.name);
+  const cardElement = createCard(cardInfo);
   cardContainer.prepend(cardElement);
   titleField.value = "";
   linkField.value = "";
@@ -111,6 +113,8 @@ function openPicture(cardImage, cardName) {
 }
 
 function createCard(cardData) {
+  debugger;
+  console.log(cardData.link);
   const cardTemplate = card.content;
   const cardElement = cardTemplate.cloneNode(true);
   const cardName = cardElement.querySelector("#cardName");
