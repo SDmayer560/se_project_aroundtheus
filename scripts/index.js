@@ -44,6 +44,7 @@ const addForm = document.querySelector("#addform");
 const popupImage = document.querySelector("#popupImage");
 const popupTitle = document.querySelector("#popupTitle");
 const popupPicture = document.querySelector("#popupPicture");
+const modals = document.querySelectorAll(".popup");
 
 /* ================================================================================================= */
 
@@ -53,9 +54,12 @@ function closePopup(modal) {
 
 function openPopup(modal) {
   modal.classList.add("popup_opened");
+}
+
+modals.forEach(function (modal) {
   closeButton = modal.querySelector("#closePopup");
   closeButton.addEventListener("click", () => closePopup(modal));
-}
+});
 
 function saveProfileInput() {
   personName.textContent = nameField.value;
@@ -75,7 +79,6 @@ editForm.addEventListener("submit", (event) => {
 });
 
 addForm.addEventListener("submit", (event) => {
-  debugger;
   event.preventDefault();
   const cardInfo = { name: titleField.value, link: linkField.value };
   console.log(cardInfo.name);
@@ -83,21 +86,16 @@ addForm.addEventListener("submit", (event) => {
   cardContainer.prepend(cardElement);
   titleField.value = "";
   linkField.value = "";
+  closePopup(addPopup);
 });
 
 addButton.addEventListener("click", () => {
   openPopup(addPopup);
 });
 
-function toggleLike(likeImage) {
-  console.log(likeImage.classList);
-  if (likeImage.classList[1] != ["locations__grid-item-heart_liked"]) {
-    likeImage.src = "./images/Hearted-Button.svg";
-    likeImage.classList.add("locations__grid-item-heart_liked");
-  } else {
-    likeImage.src = "./images/Heart-Button.svg";
-    likeImage.classList.remove("locations__grid-item-heart_liked");
-  }
+function toggleLike(likeButton) {
+  console.log(likeButton.classList);
+  likeButton.classList.toggle("locations__grid-item-heart_liked");
 }
 
 function removeCard(deleteButton) {
@@ -113,8 +111,6 @@ function openPicture(cardImage, cardName) {
 }
 
 function createCard(cardData) {
-  debugger;
-  console.log(cardData.link);
   const cardTemplate = card.content;
   const cardElement = cardTemplate.cloneNode(true);
   const cardName = cardElement.querySelector("#cardName");
@@ -123,13 +119,12 @@ function createCard(cardData) {
   cardImage.alt = cardData.name;
   cardName.textContent = cardData.name;
   const likeButton = cardElement.querySelector("#likeButton");
-  const likeImage = cardElement.querySelector("#likeImage");
   const deleteButton = cardElement.querySelector("#delete");
 
-  likeButton.addEventListener("click", () => toggleLike(likeImage));
+  likeButton.addEventListener("click", () => toggleLike(likeButton));
   deleteButton.addEventListener("click", () => removeCard(deleteButton));
   cardImage.addEventListener("click", () => openPicture(cardImage, cardName));
-  closePopup(addPopup);
+
   return cardElement;
 }
 

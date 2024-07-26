@@ -43,7 +43,16 @@
 }
 
 .locations__grid-item-heart {
+  background-image: url(../images/Heart-Button.svg);
   border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 21px;
+  height: 19px;
+}
+
+.locations__grid-item-heart_liked {
+  background-image: url(../images/Hearted-button.svg);
 }
 
 .locations__grid-item-heart:hover {
