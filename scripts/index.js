@@ -81,7 +81,6 @@ editForm.addEventListener("submit", (event) => {
 addForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const cardInfo = { name: titleField.value, link: linkField.value };
-  console.log(cardInfo.name);
   const cardElement = createCard(cardInfo);
   cardContainer.prepend(cardElement);
   titleField.value = "";
@@ -94,7 +93,6 @@ addButton.addEventListener("click", () => {
 });
 
 function toggleLike(likeButton) {
-  console.log(likeButton.classList);
   likeButton.classList.toggle("locations__grid-item-heart_liked");
 }
 
