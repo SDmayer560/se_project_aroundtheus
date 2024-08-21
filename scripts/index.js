@@ -45,8 +45,51 @@ const popupImage = document.querySelector("#popupImage");
 const popupTitle = document.querySelector("#popupTitle");
 const popupPicture = document.querySelector("#popupPicture");
 const modals = document.querySelectorAll(".popup");
+const inputFields = document.querySelectorAll(".popup__field");
+const submitButtons = document.querySelectorAll(".popup__button");
+const profileSubmit = document.querySelector("#profile-submit");
+const addSubmit = document.querySelector("#add-submit");
 
 /* ================================================================================================= */
+
+function setValidityListeners(inputFields) {
+  inputFields.forEach((inputElement) => {
+    if ((inputElement = editForm)) {
+      inputElement.addEventListener("input", function () {
+        testEditValidity();
+      });
+    } else {
+      inputElement.addEventListener("input", function () {
+        testAddValidity();
+      });
+    }
+  });
+}
+
+function enablebuttons() {
+  submitButtons.forEach((submitButton) => {
+    submitButton.classList.remove("popup__button-disabled");
+    submitButton.disabled = false;
+  });
+}
+
+function testAddValidity() {
+  if (!titleField.validity.valid || !linkField.validity.valid) {
+    addSubmit.classList.add("popup__button-disabled");
+    addSubmit.disabled = true;
+  } else {
+    enablebuttons();
+  }
+}
+
+function testEditValidity() {
+  if (!nameField.validity.valid || !occupationField.validity.valid) {
+    profileSubmit.classList.add("popup__button-disabled");
+    profileSubmit.disabled = true;
+  } else {
+    enablebuttons();
+  }
+}
 
 function closePopup(modal) {
   modal.classList.remove("popup_opened");
@@ -90,6 +133,7 @@ addForm.addEventListener("submit", (event) => {
 
 addButton.addEventListener("click", () => {
   openPopup(addPopup);
+  testAddValidity();
 });
 
 function toggleLike(likeButton) {
@@ -129,4 +173,18 @@ function createCard(cardData) {
 initialCards.forEach(function (card) {
   const cardElement = createCard(card);
   cardContainer.append(cardElement);
+});
+
+setValidityListeners(inputFields);
+
+modals.forEach((modal) =>
+  modal.addEventListener("click", function () {
+    closePopup(modal);
+  })
+);
+
+document.addEventListener("keydown", function (evt) {
+  if ((evt.key = "escape")) {
+    modals.forEach((modal) => closePopup(modal));
+  }
 });

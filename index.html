@@ -104,14 +104,26 @@
             type="text"
             placeholder="Name"
             id="namefield"
+            minlength="2"
+            maxlength="40"
+            required
           />
           <input
             class="popup__field"
             type="text"
             placeholder="Occupation"
             id="occupationfield"
+            minlength="2"
+            maxlength="200"
+            required
           />
-          <button class="popup__button buttons" type="submit">Save</button>
+          <button
+            class="popup__button buttons"
+            type="submit"
+            id="profile-submit"
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -132,14 +144,20 @@
             type="text"
             placeholder="Title"
             id="titlefield"
+            required
+            minlength="1"
+            maxlength="30"
           />
           <input
             class="popup__field"
             type="text"
             placeholder="Link"
             id="linkfield"
+            required
           />
-          <button class="popup__button buttons" type="submit">Create</button>
+          <button class="popup__button buttons" type="submit" id="add-submit">
+            Create
+          </button>
         </form>
       </div>
     </div>
