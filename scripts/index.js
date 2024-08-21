@@ -177,11 +177,14 @@ initialCards.forEach(function (card) {
 
 setValidityListeners(inputFields);
 
-modals.forEach((modal) =>
-  modal.addEventListener("click", function () {
-    closePopup(modal);
-  })
-);
+modals.forEach(function (modal) {
+  const modalBox = modal.querySelector(".popup__box");
+  modal.addEventListener("click", function (evt) {
+    if (evt.target == modal) {
+      closePopup(modal);
+    }
+  });
+});
 
 document.addEventListener("keydown", function (evt) {
   if ((evt.key = "escape")) {
