@@ -187,7 +187,8 @@ modals.forEach(function (modal) {
 });
 
 document.addEventListener("keydown", function (evt) {
-  if ((evt.key = "escape")) {
+  console.log(evt.key);
+  if (evt.key == "Escape") {
     modals.forEach((modal) => closePopup(modal));
   }
 });
