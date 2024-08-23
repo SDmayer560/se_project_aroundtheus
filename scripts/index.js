@@ -52,45 +52,6 @@ const addSubmit = document.querySelector("#add-submit");
 
 /* ================================================================================================= */
 
-function setValidityListeners(inputFields) {
-  inputFields.forEach((inputElement) => {
-    if ((inputElement = editForm)) {
-      inputElement.addEventListener("input", function () {
-        testEditValidity();
-      });
-    } else {
-      inputElement.addEventListener("input", function () {
-        testAddValidity();
-      });
-    }
-  });
-}
-
-function enablebuttons() {
-  submitButtons.forEach((submitButton) => {
-    submitButton.classList.remove("popup__button-disabled");
-    submitButton.disabled = false;
-  });
-}
-
-function testAddValidity() {
-  if (!titleField.validity.valid || !linkField.validity.valid) {
-    addSubmit.classList.add("popup__button-disabled");
-    addSubmit.disabled = true;
-  } else {
-    enablebuttons();
-  }
-}
-
-function testEditValidity() {
-  if (!nameField.validity.valid || !occupationField.validity.valid) {
-    profileSubmit.classList.add("popup__button-disabled");
-    profileSubmit.disabled = true;
-  } else {
-    enablebuttons();
-  }
-}
-
 function closePopup(modal) {
   modal.classList.remove("popup_opened");
 }
@@ -175,8 +136,6 @@ initialCards.forEach(function (card) {
   cardContainer.append(cardElement);
 });
 
-setValidityListeners(inputFields);
-
 modals.forEach(function (modal) {
   const modalBox = modal.querySelector(".popup__box");
   modal.addEventListener("click", function (evt) {
@@ -187,7 +146,6 @@ modals.forEach(function (modal) {
 });
 
 document.addEventListener("keydown", function (evt) {
-  console.log(evt.key);
   if (evt.key == "Escape") {
     modals.forEach((modal) => closePopup(modal));
   }
