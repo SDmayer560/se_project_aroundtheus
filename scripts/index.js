@@ -58,10 +58,18 @@ function closePopup(modal) {
 
 function openPopup(modal) {
   modal.classList.add("popup_opened");
+  document.addEventListener("keydown", popupEsc);
+}
+
+function popupEsc(evt) {
+  if (evt.key == "Escape") {
+    modals.forEach(closePopup);
+    document.removeEventListener("keydown", popupEsc);
+  }
 }
 
 modals.forEach(function (modal) {
-  closeButton = modal.querySelector("#closePopup");
+  const closeButton = modal.querySelector("#closePopup");
   closeButton.addEventListener("click", () => closePopup(modal));
 });
 
@@ -75,6 +83,7 @@ editButton.addEventListener("click", () => {
   openPopup(profilePopup);
   nameField.value = personName.textContent;
   occupationField.value = occupation.textContent;
+  enablebuttons();
 });
 
 editForm.addEventListener("submit", (event) => {
@@ -87,14 +96,15 @@ addForm.addEventListener("submit", (event) => {
   const cardInfo = { name: titleField.value, link: linkField.value };
   const cardElement = createCard(cardInfo);
   cardContainer.prepend(cardElement);
-  titleField.value = "";
-  linkField.value = "";
+  event.target.reset();
   closePopup(addPopup);
 });
 
 addButton.addEventListener("click", () => {
   openPopup(addPopup);
-  testAddValidity();
+  inputFields.forEach((inputElement) => {
+    testValidity(inputElement);
+  });
 });
 
 function toggleLike(likeButton) {
@@ -137,16 +147,9 @@ initialCards.forEach(function (card) {
 });
 
 modals.forEach(function (modal) {
-  const modalBox = modal.querySelector(".popup__box");
   modal.addEventListener("click", function (evt) {
     if (evt.target == modal) {
       closePopup(modal);
     }
   });
-});
-
-document.addEventListener("keydown", function (evt) {
-  if (evt.key == "Escape") {
-    modals.forEach((modal) => closePopup(modal));
-  }
 });
