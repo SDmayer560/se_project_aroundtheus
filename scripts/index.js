@@ -63,6 +63,7 @@ function openPopup(modal) {
 
 function popupEsc(evt) {
   if (evt.key == "Escape") {
+    debugger;
     modals.forEach(closePopup);
     document.removeEventListener("keydown", popupEsc);
   }
@@ -83,7 +84,6 @@ editButton.addEventListener("click", () => {
   openPopup(profilePopup);
   nameField.value = personName.textContent;
   occupationField.value = occupation.textContent;
-  enablebuttons();
 });
 
 editForm.addEventListener("submit", (event) => {
@@ -102,9 +102,6 @@ addForm.addEventListener("submit", (event) => {
 
 addButton.addEventListener("click", () => {
   openPopup(addPopup);
-  inputFields.forEach((inputElement) => {
-    testValidity(inputElement);
-  });
 });
 
 function toggleLike(likeButton) {

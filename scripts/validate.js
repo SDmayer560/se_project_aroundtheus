@@ -1,43 +1,15 @@
-function setValidityListeners(inputFields) {
-  inputFields.forEach((inputElement) => {
-    inputElement.addEventListener("input", function () {
-      testValidity(inputElement);
-    });
-  });
-}
-
-function enablebuttons() {
-  submitButtons.forEach((submitButton) => {
-    submitButton.classList.remove("popup__button-disabled");
-    submitButton.disabled = false;
-  });
-}
-
-function testValidity(inputElement) {
-  console.log(inputElement);
-  if (!inputElement.validity.valid) {
-    submitButtons.forEach((submitButton) => {
-      submitButton.classList.add("popup__button-disabled");
-      submitButton.disabled = true;
-    });
-  } else {
-    enablebuttons();
-  }
-}
-
-setValidityListeners(inputFields);
-/*
 const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  console.log(inputElement.id);
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add("form__input_type_error");
   errorElement.textContent = errorMessage;
-  errorElement.classList.add("form__input-error_active");
+  errorElement.classList.add("popup__input-error_active");
 };
 
 const hideInputError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.remove("form__input_type_error");
-  errorElement.classList.remove("form__input-error_active");
+  errorElement.classList.remove("popup__input-error_active");
   errorElement.textContent = "";
 };
 
@@ -56,16 +28,19 @@ const hasInvalidInput = (inputList) => {
 };
 
 const toggleButtonState = (inputList, buttonElement) => {
-  console.log(hasInvalidInput(inputList));
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add("popup__button-disabled");
+    buttonElement.disabled = true;
   } else {
     buttonElement.classList.remove("popup__button-disabled");
+    buttonElement.disabled = false;
   }
 };
 
 const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
+  const inputList = Array.from(
+    formElement.querySelectorAll(".popup__field-input")
+  );
   const buttonElement = formElement.querySelector(".popup__button");
   toggleButtonState(inputList, buttonElement);
   inputList.forEach((inputElement) => {
@@ -83,7 +58,9 @@ const enableValidation = () => {
       evt.preventDefault();
     });
 
-    const fieldsetList = Array.from(formElement.querySelectorAll(".form__set"));
+    const fieldsetList = Array.from(
+      formElement.querySelectorAll(".form__field")
+    );
 
     fieldsetList.forEach((fieldset) => {
       setEventListeners(fieldset);
@@ -91,4 +68,4 @@ const enableValidation = () => {
   });
 };
 
-enableValidation(); */
+enableValidation();
