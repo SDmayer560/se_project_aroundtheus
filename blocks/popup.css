@@ -131,7 +131,7 @@
   color: rgba(255, 255, 255, 1);
 }
 
-.popup__form {
+.popup__fieldset {
   border: 0;
   display: flex;
   flex-direction: column;
