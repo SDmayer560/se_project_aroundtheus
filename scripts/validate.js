@@ -1,5 +1,4 @@
 const showInputError = (formElement, inputElement, errorMessage) => {
-  console.log(inputElement.id);
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add("form__input_type_error");
   errorElement.textContent = errorMessage;
@@ -10,7 +9,7 @@ const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.remove("form__input_type_error");
   errorElement.classList.remove("popup__input-error_active");
-  errorElement.textContent = "";
+  errorElement.textContent = " ";
 };
 
 const checkInputValidity = (formElement, inputElement) => {
@@ -59,7 +58,7 @@ const enableValidation = () => {
     });
 
     const fieldsetList = Array.from(
-      formElement.querySelectorAll(".form__field")
+      formElement.querySelectorAll(".popup__form")
     );
 
     fieldsetList.forEach((fieldset) => {
@@ -68,4 +67,11 @@ const enableValidation = () => {
   });
 };
 
-enableValidation();
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+});

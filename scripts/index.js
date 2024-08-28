@@ -54,6 +54,7 @@ const addSubmit = document.querySelector("#add-submit");
 
 function closePopup(modal) {
   modal.classList.remove("popup_opened");
+  document.removeEventListener("keydown", popupEsc);
 }
 
 function openPopup(modal) {
@@ -63,9 +64,7 @@ function openPopup(modal) {
 
 function popupEsc(evt) {
   if (evt.key == "Escape") {
-    debugger;
     modals.forEach(closePopup);
-    document.removeEventListener("keydown", popupEsc);
   }
 }
 
