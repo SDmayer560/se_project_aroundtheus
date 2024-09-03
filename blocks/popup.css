@@ -139,6 +139,9 @@
 
 .popup__input-error_active {
   display: flex;
+}
+
+.popup__error-text {
   width: 316px;
   font-family: "Inter", "Times New Roman", Times, serif;
   height: 12px;
