@@ -1,31 +1,8 @@
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
+import {Card, initialCards} from "../components/Card.js";
+import {FormValidator} from "../components/FormValidator.js";
 
 /* VARIABLE DECLARATIONS */
+
 
 const profilePopup = document.querySelector("#popup-profile");
 const addPopup = document.querySelector("#popup-add");
@@ -49,8 +26,23 @@ const inputFields = document.querySelectorAll(".popup__field");
 const submitButtons = document.querySelectorAll(".popup__button");
 const profileSubmit = document.querySelector("#profile-submit");
 const addSubmit = document.querySelector("#add-submit");
+const settings = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__field",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button-disabled",
+  inputErrorClass: ".popup__input_type_error",
+  errorClass: "popup__input-error_active",
+};
+
+const editValidator = new FormValidator(settings, editForm)
+const addValidator = new FormValidator(settings, addForm)
+
+
 
 /* ================================================================================================= */
+
+
 
 function closePopup(modal) {
   modal.classList.remove("popup_opened");
@@ -89,13 +81,14 @@ editForm.addEventListener("submit", (event) => {
   event.preventDefault();
   saveProfileInput();
 });
-
 addForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const cardInfo = { name: titleField.value, link: linkField.value };
-  const cardElement = createCard(cardInfo);
-  cardContainer.prepend(cardElement);
+  const newCard = new Card(cardInfo, "#cards", openPicture);
+  const cardElement = newCard.generateCard()
+  cardContainer.append(cardElement);
   event.target.reset();
+  addValidator.toggleButtonState();
   closePopup(addPopup);
 });
 
@@ -103,44 +96,14 @@ addButton.addEventListener("click", () => {
   openPopup(addPopup);
 });
 
-function toggleLike(likeButton) {
-  likeButton.classList.toggle("locations__grid-item-heart_liked");
-}
 
-function removeCard(deleteButton) {
-  const cardTarget = deleteButton.closest(".locations__grid-item");
-  cardTarget.remove();
-}
+function openPicture(card) {
 
-function openPicture(cardImage, cardName) {
-  popupImage.src = cardImage.src;
-  popupImage.alt = cardImage.alt;
-  popupTitle.textContent = cardName.textContent;
+  popupImage.src = card._image;
+  popupImage.alt = card._text;
+  popupTitle.textContent = card._text;
   openPopup(popupPicture);
 }
-
-function createCard(cardData) {
-  const cardTemplate = card.content;
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardName = cardElement.querySelector("#cardName");
-  const cardImage = cardElement.querySelector("#cardImage");
-  cardImage.src = cardData.link;
-  cardImage.alt = cardData.name;
-  cardName.textContent = cardData.name;
-  const likeButton = cardElement.querySelector("#likeButton");
-  const deleteButton = cardElement.querySelector("#delete");
-
-  likeButton.addEventListener("click", () => toggleLike(likeButton));
-  deleteButton.addEventListener("click", () => removeCard(deleteButton));
-  cardImage.addEventListener("click", () => openPicture(cardImage, cardName));
-
-  return cardElement;
-}
-
-initialCards.forEach(function (card) {
-  const cardElement = createCard(card);
-  cardContainer.append(cardElement);
-});
 
 modals.forEach(function (modal) {
   modal.addEventListener("click", function (evt) {
@@ -149,3 +112,13 @@ modals.forEach(function (modal) {
     }
   });
 });
+
+initialCards.forEach(function (data) {
+  const newCard = new Card(data, "#cards", openPicture);
+  const cardElement = newCard.generateCard()
+  cardContainer.append(cardElement);
+
+});
+
+editValidator.enableValidation()
+addValidator.enableValidation()
