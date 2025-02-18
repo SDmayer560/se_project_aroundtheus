@@ -28,6 +28,13 @@ export class FormValidator {
         });
       }
 
+      resetValidation() {
+        this._toggleButtonState();
+        this._inputList.forEach((inputElement) => {
+          this._hideInputError(inputElement)
+        })
+      }
+
       toggleButtonState() {
         if (!this._formElement.checkValidity()) {
           this._buttonElement.classList.add(this._inactiveButtonClass);

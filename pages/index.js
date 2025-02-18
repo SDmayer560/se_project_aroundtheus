@@ -1,8 +1,34 @@
-import {Card, initialCards} from "../components/Card.js";
+import {Card} from "../components/Card.js";
 import {FormValidator} from "../components/FormValidator.js";
 
 /* VARIABLE DECLARATIONS */
 
+const initialCards = [
+  {
+    name: "Yosemite Valley",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+  },
+  {
+    name: "Lake Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
+  },
+  {
+    name: "Bald Mountains",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
+  },
+  {
+    name: "Vanoise National Park",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
+  },
+];
 
 const profilePopup = document.querySelector("#popup-profile");
 const addPopup = document.querySelector("#popup-add");
@@ -11,21 +37,17 @@ const nameField = document.querySelector("#namefield");
 const occupationField = document.querySelector("#occupationfield");
 const titleField = document.querySelector("#titlefield");
 const linkField = document.querySelector("#linkfield");
-const card = document.querySelector("#cards");
 const cardContainer = document.querySelector("#cardscontainer");
 const addButton = document.querySelector("#addbutton");
 const personName = document.querySelector("#name");
 const occupation = document.querySelector("#occupation");
-const editForm = document.querySelector("#editform");
-const addForm = document.querySelector("#addform");
+const editForm = document.forms["editform"];
+const addForm = document.forms["addform"];
 const popupImage = document.querySelector("#popupImage");
 const popupTitle = document.querySelector("#popupTitle");
 const popupPicture = document.querySelector("#popupPicture");
 const modals = document.querySelectorAll(".popup");
-const inputFields = document.querySelectorAll(".popup__field");
-const submitButtons = document.querySelectorAll(".popup__button");
-const profileSubmit = document.querySelector("#profile-submit");
-const addSubmit = document.querySelector("#add-submit");
+
 const settings = {
   formSelector: ".popup__form",
   inputSelector: ".popup__field",
@@ -84,9 +106,7 @@ editForm.addEventListener("submit", (event) => {
 addForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const cardInfo = { name: titleField.value, link: linkField.value };
-  const newCard = new Card(cardInfo, "#cards", openPicture);
-  const cardElement = newCard.generateCard()
-  cardContainer.append(cardElement);
+  cardContainer.prepend(createCard(cardInfo));
   event.target.reset();
   addValidator.toggleButtonState();
   closePopup(addPopup);
@@ -96,12 +116,18 @@ addButton.addEventListener("click", () => {
   openPopup(addPopup);
 });
 
+function createCard(cardInfo) {
+  const newCard = new Card(cardInfo, "#cards", openPicture);
+  const cardElement = newCard.generateCard()
 
-function openPicture(card) {
+  return cardElement
+}
 
-  popupImage.src = card._image;
-  popupImage.alt = card._text;
-  popupTitle.textContent = card._text;
+function openPicture(cardImage, cardText) {
+
+  popupImage.src = cardImage;
+  popupImage.alt = cardText;
+  popupTitle.textContent = cardText;
   openPopup(popupPicture);
 }
 
@@ -114,9 +140,7 @@ modals.forEach(function (modal) {
 });
 
 initialCards.forEach(function (data) {
-  const newCard = new Card(data, "#cards", openPicture);
-  const cardElement = newCard.generateCard()
-  cardContainer.append(cardElement);
+  cardContainer.append(createCard(data));
 
 });
 
